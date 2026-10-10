@@ -155,11 +155,32 @@ export const finale = {
 
 // Photo placeholder strip — swap these for real photos.
 // Put your images in `public/photos/` and change `src` to e.g. `./photos/us-1.jpg`.
+
 export const photoPlaceholders = [
-  { id: 1, caption: 'Our first photo together', hint: 'Add a real photo here 💗' },
-  { id: 2, caption: 'That day you were laughing', hint: 'Add a real photo here 💗' },
-  { id: 3, caption: 'Us being silly', hint: 'Add a real photo here 💗' },
-  { id: 4, caption: 'Your favourite one of me', hint: 'Add a real photo here 💗' }
+  {
+    id: 1,
+    caption: 'The Craziest one',
+    hint: 'The best one i have ever seen💗',
+    src: `${import.meta.env.BASE_URL}photos/mrun1.jpeg`
+  },
+  {
+    id: 2,
+    caption: 'That day you were glowing',
+    hint: 'Your glowing face is my favorite 💗',
+    src: `${import.meta.env.BASE_URL}photos/mrun2.jpeg`
+  },
+  {
+    id: 3,
+    caption: 'The Cutest',
+    hint: 'My favourite kind of chaos 💗',
+    src: `${import.meta.env.BASE_URL}photos/mrun3.jpeg`
+  },
+  {
+    id: 4,
+    caption: 'My favorite one of y',
+    hint: 'One more memory with you 💗',
+    src: `${import.meta.env.BASE_URL}photos/mrun4.jpeg`
+  }
 ]
 
 // Section registry drives the nav + scroll-spy.
