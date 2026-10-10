@@ -1,0 +1,300 @@
+/* ==========================================================================
+   Animations & decorative layers
+   (keyframes + floating hearts, sparkles, petals, shower, teddy, roses)
+   ========================================================================== */
+
+/* --------------------------------- Keyframes ------------------------------ */
+
+@keyframes shine {
+  0% {
+    left: -60%;
+  }
+  55%,
+  100% {
+    left: 130%;
+  }
+}
+
+@keyframes btnPulse {
+  0%,
+  100% {
+    box-shadow: 0 12px 30px rgba(233, 75, 125, 0.34), 0 0 0 0 rgba(255, 93, 143, 0.32);
+  }
+  50% {
+    box-shadow: 0 14px 34px rgba(233, 75, 125, 0.4), 0 0 0 14px rgba(255, 93, 143, 0);
+  }
+}
+
+@keyframes beat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  22% {
+    transform: scale(1.22);
+  }
+  40% {
+    transform: scale(0.97);
+  }
+  58% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translate3d(0, 12vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(var(--drift, 0px), -118vh, 0) rotate(28deg);
+    opacity: 0;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.25);
+  }
+}
+
+@keyframes petalFall {
+  0% {
+    transform: translate3d(0, -14vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(50px, 105vh, 0) rotate(220deg);
+    opacity: 0;
+  }
+}
+
+@keyframes showerFall {
+  0% {
+    transform: translate3d(0, -16vh, 0) rotate(0deg) scale(0.85);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 112vh, 0) rotate(var(--rotate, 340deg)) scale(1.05);
+    opacity: 0;
+  }
+}
+
+@keyframes teddyWave {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  45% {
+    transform: rotate(-22deg);
+  }
+  70% {
+    transform: rotate(6deg);
+  }
+}
+
+@keyframes softBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.8);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.06);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-46px) scale(1);
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.08);
+  }
+}
+
+/* ------------------------------ Floating hearts --------------------------- */
+
+.floating-hearts {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-hearts--bg {
+  position: fixed;
+  z-index: -1;
+}
+
+.floating-hearts--nav {
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.floating-hearts__item {
+  position: absolute;
+  bottom: -8vh;
+  animation: floatUp var(--dur, 18s) linear infinite;
+  animation-delay: var(--delay, 0s);
+  will-change: transform, opacity;
+  filter: drop-shadow(0 2px 6px rgba(233, 75, 125, 0.18));
+}
+
+/* --------------------------------- Sparkles ------------------------------- */
+
+.sparkles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sparkles--bg {
+  position: fixed;
+  z-index: -1;
+}
+
+.sparkles__dot {
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 8px 2px rgba(255, 184, 211, 0.9);
+  animation: twinkle 3s var(--ease-soft) infinite;
+}
+
+/* ------------------------------ Background wrap --------------------------- */
+
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ---------------------------------- Petals -------------------------------- */
+
+.petals {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: var(--r-lg);
+  z-index: 0;
+}
+
+.petals__item {
+  position: absolute;
+  top: -10vh;
+  opacity: 0.85;
+  animation: petalFall linear infinite;
+  will-change: transform, opacity;
+}
+
+/* ---------------------------------- Shower -------------------------------- */
+
+.shower {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.shower__piece {
+  position: absolute;
+  top: -10vh;
+  animation: showerFall linear forwards;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 3px 7px rgba(233, 75, 125, 0.26));
+}
+
+/* ----------------------------------- Teddy -------------------------------- */
+
+.teddy {
+  display: block;
+  animation: softBob 3.6s var(--ease-soft) infinite;
+}
+
+.teddy__paw {
+  transform-origin: 94px 91px;
+  animation: teddyWave 2.1s var(--ease-soft) infinite;
+}
+
+/* ----------------------------------- Rose --------------------------------- */
+
+.rose {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.rose__label {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--ink-faint);
+  text-align: center;
+  max-width: 108px;
+  line-height: 1.4;
+}
+
+/* ------------------------------- Legacy glow ------------------------------ */
+
+.welcome__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 130vw;
+  height: 130vw;
+  max-width: 760px;
+  max-height: 760px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 184, 211, 0.5), transparent 62%);
+  animation: glowPulse 6s var(--ease-soft) infinite;
+  pointer-events: none;
+}

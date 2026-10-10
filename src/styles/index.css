@@ -1,0 +1,10 @@
+/* ==========================================================================
+   Style entry point — import order matters.
+   base → animations → welcome/nav → sections → game & letter
+   ========================================================================== */
+
+@import './base.css';
+@import './animations.css';
+@import './welcome.css';
+@import './sections.css';
+@import './game-letter.css';

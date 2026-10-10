@@ -1,0 +1,361 @@
+/* ==========================================================================
+   Sections 2-4 — Apology · Love cards · Promise
+   ========================================================================== */
+
+/* ------------------------------- 2 · Apology ------------------------------ */
+
+.note-card {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 26px 30px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--pink-200);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Little ribbon across the top-right corner */
+.note-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 54px solid rgba(255, 184, 211, 0.55);
+  border-left: 54px solid transparent;
+  border-top-right-radius: var(--r-lg);
+}
+
+.note-card__quote {
+  position: absolute;
+  top: 8px;
+  left: 20px;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--pink-200);
+  pointer-events: none;
+}
+
+.note-card__para {
+  position: relative;
+  margin: 0 0 1.05em;
+  font-size: 1.04rem;
+  line-height: 1.95;
+  color: var(--ink);
+}
+
+.note-card__para:first-of-type {
+  font-weight: 500;
+}
+
+.note-card__signoff {
+  margin-top: 22px;
+  padding-top: 18px;
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-style: italic;
+  text-align: right;
+  color: var(--pink-700);
+  border-top: 1px dashed var(--pink-200);
+}
+
+.reassure {
+  display: grid;
+  gap: 12px;
+  max-width: 760px;
+  margin: 30px auto 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reassure li {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 14px 18px;
+  font-size: 0.94rem;
+  color: var(--ink-soft);
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+
+.reassure li span {
+  flex: 0 0 auto;
+  font-size: 1rem;
+  animation: beat 2.8s var(--ease-soft) infinite;
+}
+
+/* ------------------------------ 3 · Love cards ---------------------------- */
+
+.love-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.flip-card {
+  position: relative;
+  height: 216px;
+  padding: 0;
+  background: none;
+  border: none;
+  perspective: 1100px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.flip-card__inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.68s var(--ease);
+}
+
+.flip-card--on .flip-card__inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card__face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 22px 20px;
+  text-align: center;
+  border-radius: var(--r-md);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.flip-card__face--front {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--pink-200);
+}
+
+.flip-card__face--back {
+  background: linear-gradient(150deg, #fff 0%, #ffe8f1 55%, #efe9ff 100%);
+  border: 1px solid var(--lav-200);
+  transform: rotateY(180deg);
+}
+
+.flip-card__icon {
+  font-size: 2.05rem;
+  line-height: 1;
+}
+
+.flip-card__title {
+  font-family: var(--font-display);
+  font-size: 1.24rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.flip-card__text {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.flip-card__backtext {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.flip-card__cta {
+  margin-top: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pink-500);
+}
+
+/* ---- Memory wall ---- */
+
+.photo-strip {
+  margin-top: 46px;
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+}
+
+.photo-strip__title {
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.photo-strip__hint {
+  max-width: 520px;
+  margin: 0 auto 22px;
+  font-size: 0.88rem;
+  text-align: center;
+  color: var(--ink-faint);
+}
+
+.photo-strip__row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.photo-frame {
+  margin: 0;
+}
+
+.photo-frame__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  aspect-ratio: 4 / 5;
+  padding: 12px;
+  text-align: center;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 232, 241, 0.75),
+    rgba(255, 232, 241, 0.75) 10px,
+    rgba(255, 255, 255, 0.75) 10px,
+    rgba(255, 255, 255, 0.75) 20px
+  );
+  border: 2px dashed var(--pink-300);
+  border-radius: var(--r-md);
+  transition: transform 0.26s var(--ease), border-color 0.26s var(--ease);
+}
+
+.photo-frame:hover .photo-frame__box {
+  transform: translateY(-4px) rotate(-0.6deg);
+  border-color: var(--pink-500);
+}
+
+.photo-frame__icon {
+  font-size: 1.7rem;
+}
+
+.photo-frame__hint {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--pink-700);
+}
+
+.photo-frame__caption {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--ink-faint);
+}
+
+/* -------------------------------- 4 · Promise ----------------------------- */
+
+.promise-list {
+  display: grid;
+  gap: 14px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.promise-item {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: start;
+  gap: 14px;
+  padding: 22px 20px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--lav-300);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.26s var(--ease), border-left-color 0.26s var(--ease),
+    box-shadow 0.26s var(--ease);
+}
+
+.promise-item:hover {
+  transform: translateX(5px);
+  border-left-color: var(--pink-500);
+  box-shadow: var(--shadow-md);
+}
+
+.promise-item__num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--pink-200);
+}
+
+.promise-item__icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.promise-item__title {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.promise-item__text {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.promise-foot {
+  max-width: 720px;
+  margin: 30px auto 0;
+  padding: 24px 24px 24px 30px;
+  font-family: var(--font-display);
+  font-size: 1.06rem;
+  font-style: italic;
+  line-height: 1.75;
+  color: var(--ink);
+  background: linear-gradient(120deg, rgba(255, 232, 241, 0.9), rgba(239, 233, 255, 0.9));
+  border-left: 5px solid var(--pink-400);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+}
+
+/* ------------------------------ Responsive -------------------------------- */
+
+@media (min-width: 640px) {
+  .love-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .photo-strip__row {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .note-card {
+    padding: 52px 46px 38px;
+  }
+  .note-card__para {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 960px) {
+  .love-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .flip-card {
+    height: 232px;
+  }
+  .flip-card:hover .flip-card__inner {
+    transform: translateY(-5px);
+  }
+  .flip-card--on:hover .flip-card__inner {
+    transform: rotateY(180deg) translateY(-5px);
+  }
+}

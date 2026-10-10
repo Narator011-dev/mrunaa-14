@@ -1,0 +1,221 @@
+/* ==========================================================================
+   Welcome screen + top navigation
+   ========================================================================== */
+
+.welcome {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px var(--gutter) 84px;
+  text-align: center;
+  background: linear-gradient(165deg, #fff6fa 0%, #ffe8f1 42%, #f3ecff 100%);
+  overflow: hidden;
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease),
+    visibility 0.6s var(--ease);
+}
+
+.welcome--leaving {
+  opacity: 0;
+  transform: scale(1.05);
+  visibility: hidden;
+}
+
+.welcome__inner {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 620px;
+  animation: popInSoft 0.9s var(--ease) both;
+}
+
+@keyframes popInSoft {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.welcome__kicker {
+  margin: 0 0 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lav-500);
+}
+
+.welcome__teddy {
+  margin-bottom: 8px;
+  filter: drop-shadow(0 12px 24px rgba(201, 58, 104, 0.18));
+}
+
+.welcome__title {
+  font-size: clamp(2rem, 9vw, 3.4rem);
+  margin-bottom: 14px;
+  background: linear-gradient(120deg, var(--pink-600), var(--lav-500) 78%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--pink-600);
+}
+
+.welcome__subtitle {
+  max-width: 460px;
+  margin: 0 0 30px;
+  font-size: clamp(1rem, 4vw, 1.18rem);
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.welcome__hint {
+  margin: 20px 0 0;
+  font-size: 0.86rem;
+  color: var(--ink-faint);
+}
+
+.welcome__foot {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: max-content;
+  max-width: 90vw;
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+  opacity: 0.9;
+}
+
+/* -------------------------------- Top navigation -------------------------- */
+
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 90;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.progress__fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--pink-400), var(--lav-400));
+  transition: width 0.14s linear;
+}
+
+.topnav {
+  position: fixed;
+  top: 3px;
+  left: 0;
+  right: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  background: rgba(255, 250, 252, 0.86);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  overflow: hidden;
+}
+
+.topnav__brand {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+  padding-right: 12px;
+  border-right: 1px solid var(--line);
+}
+
+.topnav__brand-heart {
+  font-size: 1.05rem;
+  animation: beat 2.2s var(--ease-soft) infinite;
+}
+
+.topnav__brand-text {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--pink-700);
+  white-space: nowrap;
+}
+
+.topnav__list {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 2px 2px 4px;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.topnav__list::-webkit-scrollbar {
+  display: none;
+}
+
+.topnav__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--ink-soft);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  transition: all 0.22s var(--ease);
+}
+
+.topnav__chip:hover {
+  color: var(--pink-700);
+  border-color: var(--pink-300);
+  transform: translateY(-1px);
+}
+
+.topnav__chip--active {
+  color: #fff;
+  background: linear-gradient(135deg, var(--pink-500), var(--pink-600));
+  border-color: transparent;
+  box-shadow: 0 6px 18px rgba(233, 75, 125, 0.3);
+}
+
+@media (max-width: 520px) {
+  .topnav__brand-text {
+    display: none;
+  }
+  .topnav__brand {
+    padding-right: 8px;
+  }
+  .topnav__chip-label {
+    display: none;
+  }
+  .topnav__chip {
+    padding: 8px 11px;
+    font-size: 0.95rem;
+  }
+}
