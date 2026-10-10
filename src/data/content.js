@@ -132,7 +132,7 @@ export const letter = {
   envelopeHint: 'Tap to open',
   salutation: 'My darling Mrunaaa,',
   body: [
-    "Baby the more i speak is less for me you are the best thing that could ever ever happen to me, the best person"
+    "Baby the more i speak is less for me you are the best thing that could ever ever happen to me, the best person",
     "the best human being, My baby your not just my girlfriend you are myy wifeee, I love Youu so so much myy Mrunaaaa"
     
   ]
